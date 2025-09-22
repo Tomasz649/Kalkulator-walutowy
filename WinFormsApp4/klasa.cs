@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WinFormsApp4;
+
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Security.Authentication;
 
@@ -47,6 +49,12 @@ internal class Klasa
             json = client.GetStringAsync("https://api.nbp.pl/api/exchangerates/tables/a/").Result;
         }
         Console.WriteLine(json);
+        APIresponse response = JsonConvert.DeserializeObject<APIresponse[]>(json)[0];
+        Console.WriteLine(json);
+
+        response.rates.Find(r => r.code == "USD");
+        response.rates.Find(r => r.code == "EUR");
+        response.rates.Find(r => r.code == "GBP");
 
 
         // Tutaj można dodać kod do pobierania kursów z API
