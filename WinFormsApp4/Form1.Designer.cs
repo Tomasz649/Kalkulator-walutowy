@@ -34,6 +34,7 @@
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // textBox1
@@ -71,6 +72,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "pln to eur";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += textBox1_TextChanged;
             // 
             // radioButton2
             // 
@@ -82,6 +84,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "pln to f";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.Click += textBox1_TextChanged;
             // 
             // radioButton3
             // 
@@ -93,12 +96,22 @@
             radioButton3.TabStop = true;
             radioButton3.Text = "pln na dolar";
             radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.Click += textBox1_TextChanged;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(1, 425);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 8;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBox1);
             Controls.Add(radioButton3);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -119,5 +132,6 @@
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private RadioButton radioButton3;
+        private ComboBox comboBox1;
     }
 }

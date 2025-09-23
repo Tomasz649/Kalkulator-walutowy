@@ -26,7 +26,7 @@ internal class Klasa
         GetFromAPI();
     }
 
-    Dictionary<Currency, double> exchangerates = new Dictionary<Currency, double>
+    Dictionary<Currency, double> rates = new Dictionary<Currency, double>
     {
         { Currency.USD, 4.00 },
         { Currency.EUR, 4.29 },
@@ -38,27 +38,27 @@ internal class Klasa
 
     public double toPLN(double amount, Currency from)
     {
-        return amount * exchangerates[from];
+        return amount * rates[from];
 
     }
     public void GetFromAPI()
     {
         string json;
-        using(HttpClient client = new HttpClient())
+
+        using (HttpClient client = new HttpClient())
         {
-            json = client.GetStringAsync("https://api.nbp.pl/api/exchangerates/tables/a/").Result;
+            json = client.GetStringAsync("https://api.nbp.pl/api/exchangerates/tables/A/").Result;
         }
-        Console.WriteLine(json);
+
         APIresponse response = JsonConvert.DeserializeObject<APIresponse[]>(json)[0];
-        Console.WriteLine(json);
 
-        response.rates.Find(r => r.code == "USD");
-        response.rates.Find(r => r.code == "EUR");
-        response.rates.Find(r => r.code == "GBP");
-
-
-        // Tutaj można dodać kod do pobierania kursów z API
+        rates[Currency.USD] = response.rates[1].mid;
+        rates[Currency.EUR] = response.rates[7].mid;
+        rates[Currency.GBP] = response.rates[10].mid;
     }
+
 }
+
+
 
 

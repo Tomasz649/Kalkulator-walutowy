@@ -17,10 +17,10 @@ namespace WinFormsApp4
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-            
+
         {
-            
-            
+
+
             if (!double.TryParse(textBox1.Text, out double currency))
             {
                 textBox1.BackColor = Color.Red;
@@ -30,9 +30,9 @@ namespace WinFormsApp4
             {
                 textBox1.BackColor = Color.White;
             }
-                double rate = 0.00;
+            double rate = 0.00;
 
-            
+
 
             if (radioButton1.Checked)
             {
@@ -47,8 +47,13 @@ namespace WinFormsApp4
                 rate = exchange.toPLN(currency, Currency.USD);
             }
 
-            
+
             textBox2.Text = rate.ToString("0.00");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
