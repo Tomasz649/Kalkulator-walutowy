@@ -1,59 +1,83 @@
-using System.Security.Authentication;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace WinFormsApp4
 {
     public partial class Form1 : Form
     {
-        Klasa exchange;
+        CurrencyExchange exchange;
+
         public Form1()
         {
             InitializeComponent();
-            exchange = new Klasa();
+            exchange = new CurrencyExchange();
+
+            // Wype³niamy oba comboBoxy kodami walut
+            foreach (var currency in exchange.GetCurrencies())
+            {
+                comboBox1.Items.Add(currency.code); // waluta Ÿród³owa
+                comboBox2.Items.Add(currency.code); // waluta docelowa
+            }
+
+            // Domyœlne ustawienie — z EUR na PLN
+            comboBox1.SelectedItem = "EUR";
+            comboBox2.SelectedItem = "PLN";
+
+            // Obs³uga zdarzeñ
+            comboBox1.SelectedIndexChanged += ComboBoxes_Changed;
+            comboBox2.SelectedIndexChanged += ComboBoxes_Changed;
+            textBox1.TextChanged += textBox1_TextChanged;
         }
 
-        private void textBox2_ReadOnlyChanged(object sender, EventArgs e)
+        private void ComboBoxes_Changed(object sender, EventArgs e)
         {
-
+            ConvertCurrency();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-
         {
+            ConvertCurrency();
+        }
 
-
-            if (!double.TryParse(textBox1.Text, out double currency))
+        private void ConvertCurrency()
+        {
+            if (!double.TryParse(textBox1.Text, out double amount))
             {
                 textBox1.BackColor = Color.Red;
+                textBox2.Text = "";
                 return;
             }
             else
             {
                 textBox1.BackColor = Color.White;
             }
-            double rate = 0.00;
 
-
-
-            if (radioButton1.Checked)
+            if (comboBox1.SelectedItem == null || comboBox2.SelectedItem == null)
             {
-                rate = exchange.toPLN(currency, Currency.EUR);
-            }
-            if (radioButton2.Checked)
-            {
-                rate = exchange.toPLN(currency, Currency.GBP);
-            }
-            if (radioButton3.Checked)
-            {
-                rate = exchange.toPLN(currency, Currency.USD);
+                textBox2.Text = "";
+                return;
             }
 
+            try
+            {
+                string fromCode = comboBox1.SelectedItem.ToString();
+                string toCode = comboBox2.SelectedItem.ToString();
 
-            textBox2.Text = rate.ToString("0.00");
+                Currency fromCurrency = exchange.GetFromCode(fromCode);
+                Currency toCurrency = exchange.GetFromCode(toCode);
+
+                double result = exchange.Convert(amount, fromCurrency, toCurrency);
+                textBox2.Text = result.ToString("0.00");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                textBox2.Text = "";
+            }
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox2_ReadOnlyChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
