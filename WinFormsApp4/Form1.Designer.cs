@@ -24,9 +24,6 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             label1 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             SuspendLayout();
@@ -56,42 +53,6 @@
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(403, 12);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(76, 19);
-            radioButton1.TabIndex = 5;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "pln to eur";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += textBox1_TextChanged;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(403, 37);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(63, 19);
-            radioButton2.TabIndex = 6;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "pln to f";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.Click += textBox1_TextChanged;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(403, 62);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(88, 19);
-            radioButton3.TabIndex = 7;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "pln na dolar";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.Click += textBox1_TextChanged;
-            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
@@ -115,9 +76,6 @@
             ClientSize = new Size(800, 450);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
             Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -132,9 +90,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Label label1;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
     }

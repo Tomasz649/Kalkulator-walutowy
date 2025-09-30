@@ -13,22 +13,20 @@ namespace WinFormsApp4
             InitializeComponent();
             exchange = new CurrencyExchange();
 
-            // Wype³niamy oba comboBoxy kodami walut
             foreach (var currency in exchange.GetCurrencies())
             {
-                comboBox1.Items.Add(currency.code); // waluta Ÿród³owa
-                comboBox2.Items.Add(currency.code); // waluta docelowa
+                comboBox1.Items.Add(currency.code);
+                comboBox2.Items.Add(currency.code); 
             }
 
-            // Domyœlne ustawienie — z EUR na PLN
             comboBox1.SelectedItem = "EUR";
             comboBox2.SelectedItem = "PLN";
 
-            // Obs³uga zdarzeñ
             comboBox1.SelectedIndexChanged += ComboBoxes_Changed;
             comboBox2.SelectedIndexChanged += ComboBoxes_Changed;
             textBox1.TextChanged += textBox1_TextChanged;
         }
+
 
         private void ComboBoxes_Changed(object sender, EventArgs e)
         {

@@ -77,9 +77,23 @@ namespace WinFormsApp4
         }
         public double Convert(double amount, Currency from, Currency to)
         {
-
-            double amountInPLN = ToPLN(amount, from);
-            return amountInPLN / to.rate;
+            if (from.code == "PLN" && to.code != "PLN")
+            {
+                double adjustedRate = to.rate * 1.02;
+                double amountInPLN = amount; 
+                return amountInPLN / adjustedRate;
+            }
+            else if (to.code == "PLN" && from.code != "PLN")
+            {
+                double adjustedRate = from.rate * 0.98;
+                return amount * adjustedRate;
+            }
+            else
+            {
+                double amountInPLN = ToPLN(amount, from);
+                return amountInPLN / to.rate;
+            }
         }
     }
+    
 }
