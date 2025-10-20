@@ -23,7 +23,6 @@
         {
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            label1 = new Label();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             SuspendLayout();
@@ -44,19 +43,10 @@
             textBox2.TabIndex = 1;
             textBox2.ReadOnlyChanged += textBox2_ReadOnlyChanged;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(156, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
-            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(468, 98);
+            comboBox1.Location = new Point(157, 79);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 8;
@@ -64,7 +54,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(-5, 98);
+            comboBox2.Location = new Point(284, 79);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 9;
@@ -76,7 +66,6 @@
             ClientSize = new Size(800, 450);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "Form1";
