@@ -25,6 +25,8 @@
             textBox2 = new TextBox();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
+            label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -59,11 +61,33 @@
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 9;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(157, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Input:";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(284, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(48, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Output:";
+            label3.Click += label3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Controls.Add(textBox2);
@@ -81,5 +105,7 @@
         private Label label1;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
+        private Label label2;
+        private Label label3;
     }
 }

@@ -16,7 +16,7 @@ namespace WinFormsApp4
             foreach (var currency in exchange.GetCurrencies())
             {
                 comboBox1.Items.Add(currency.code);
-                comboBox2.Items.Add(currency.code); 
+                comboBox2.Items.Add(currency.code);
             }
 
             comboBox1.SelectedItem = "EUR";
@@ -76,6 +76,21 @@ namespace WinFormsApp4
         }
         private void textBox2_ReadOnlyChanged(object sender, EventArgs e)
         {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// ////////////////////////////////////////////////
+        /// //////////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
